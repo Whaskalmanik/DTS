@@ -1,0 +1,142 @@
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <com.whaskalmanik.dtssensor.preferences.MyPreferenceCategory
+        android:key="connection_category"
+        android:title="@string/connection_category">
+
+        <EditTextPreference
+            android:defaultValue="192.168.4.1"
+            android:inputType="text"
+            android:key="database_ip"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/connection_ip" />
+
+        <EditTextPreference
+            android:defaultValue="27017"
+            android:inputType="numberSigned"
+            android:key="database_port"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/connection_port" />
+
+        <EditTextPreference
+            android:defaultValue="DTS"
+            android:inputType="text"
+            android:key="database_name"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/connection_name" />
+    </com.whaskalmanik.dtssensor.preferences.MyPreferenceCategory>
+    <com.whaskalmanik.dtssensor.preferences.MyPreferenceCategory
+        android:key="synchronizations_category"
+        android:title="@string/synchronizations_category">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="synchronizations_switch"
+            android:summary="@string/synchronizations_switch_description"
+            android:title="@string/synchronizations_switch_title" />
+        <ListPreference
+            android:defaultValue="30"
+            android:dependency="synchronizations_switch"
+            android:entries="@array/pref_sync_frequency_titles"
+            android:entryValues="@array/pref_sync_frequency_values"
+            android:key="sync_frequency"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:title="@string/pref_title_sync_frequency" />
+    </com.whaskalmanik.dtssensor.preferences.MyPreferenceCategory>
+
+    <com.whaskalmanik.dtssensor.preferences.MyPreferenceCategory
+        android:key="heat_graph_category"
+        android:title="@string/heat_graph_category">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="heat_graph_switch"
+            android:summary="@string/graph_heat_switch_desc"
+            android:title="@string/graph_heat_switch_name" />
+
+        <EditTextPreference
+            android:defaultValue="20"
+            android:inputType="numberSigned"
+            android:key="graph_heat_min"
+            android:dependency="heat_graph_switch"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/graph_heat_min" />
+
+        <EditTextPreference
+            android:defaultValue="30"
+            android:inputType="numberSigned"
+            android:key="graph_heat_max"
+            android:dependency="heat_graph_switch"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/graph_heat_max" />
+
+    </com.whaskalmanik.dtssensor.preferences.MyPreferenceCategory>
+
+    <com.whaskalmanik.dtssensor.preferences.MyPreferenceCategory
+        android:key="graph_category"
+        android:title="@string/graph_category">
+        <EditTextPreference
+            android:defaultValue="0"
+            android:inputType="number"
+            android:key="graph_offset_min"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/graph_offset_min" />
+
+        <EditTextPreference
+            android:defaultValue="500"
+            android:inputType="number"
+            android:key="graph_offset_max"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/graph_offset_max" />
+
+    </com.whaskalmanik.dtssensor.preferences.MyPreferenceCategory>
+
+    <com.whaskalmanik.dtssensor.preferences.MyPreferenceCategory
+        android:key="markers_category"
+        android:title="@string/marker_category">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="marker_switch"
+            android:summary="@string/marker_switch_description"
+            android:title="@string/marker_switch_title" />
+
+        <EditTextPreference
+            android:defaultValue="60"
+            android:dependency="marker_switch"
+            android:inputType="numberSigned"
+            android:key="warning_marker"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/warning_title" />
+
+        <EditTextPreference
+            android:defaultValue="80"
+            android:dependency="marker_switch"
+            android:inputType="numberSigned"
+            android:key="critical_marker"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/critical_marker" />
+
+
+    </com.whaskalmanik.dtssensor.preferences.MyPreferenceCategory>
+</PreferenceScreen>
